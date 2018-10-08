@@ -5,7 +5,7 @@
 # Invenio-Record-Editor is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-"""Invenio module serving a generic record editor"""
+"""Invenio module serving a generic record editor."""
 
 import os
 
@@ -17,6 +17,7 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'invenio-db>=1.0.2',
     'isort>=4.3.3',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
@@ -37,12 +38,12 @@ for reqs in extras_require.values():
     extras_require['all'].extend(reqs)
 
 setup_requires = [
-    'Babel>=1.3',
     'pytest-runner>=2.6.2',
 ]
 
 install_requires = [
-    'Flask-BabelEx>=0.9.2',
+    'invenio-assets>=1.0.0',
+    'invenio-accounts>=1.0.1',
 ]
 
 packages = find_packages()
@@ -62,7 +63,7 @@ setup(
     keywords='invenio TODO',
     license='MIT',
     author='CERN',
-    author_email='mr.topless@cern.ch',
+    author_email='info@inveniosoftware.org',
     url='https://github.com/topless/invenio-record-editor',
     packages=packages,
     zip_safe=False,
@@ -70,15 +71,17 @@ setup(
     platforms='any',
     entry_points={
         'invenio_base.apps': [
-            'invenio_record_editor = invenio_record_editor:InvenioRecordEditor',
+            'invenio_record_editor = invenio_record_editor.ext:InvenioRecordEditor',
         ],
-        'invenio_i18n.translations': [
-            'messages = invenio_record_editor',
-        ],
-        # TODO: Edit these entry points to fit your needs.
+        # 'invenio_i18n.translations': [
+        #     'messages = invenio_record_editor',
+        # ],
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
-        # 'invenio_assets.bundles': [],
+        'invenio_assets.bundles': [
+            'invenio_record_editor_js = invenio_record_editor.bundles:js',
+            'invenio_record_editor_css = invenio_record_editor.bundles:css'
+        ],
         # 'invenio_base.api_apps': [],
         # 'invenio_base.api_blueprints': [],
         # 'invenio_base.blueprints': [],

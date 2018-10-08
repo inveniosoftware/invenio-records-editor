@@ -2,8 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify it
-# under the terms of the MIT License; see LICENSE file for more details.
+# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# it under the terms of the MIT License; see LICENSE file for more details.
 
 """Pytest configuration."""
 
@@ -14,7 +14,10 @@ import tempfile
 
 import pytest
 from flask import Flask
-from flask_babelex import Babel
+from invenio_accounts import InvenioAccounts
+from invenio_assets import InvenioAssets
+
+from invenio_record_editor import InvenioRecordEditor
 
 
 @pytest.yield_fixture()
@@ -28,12 +31,11 @@ def instance_path():
 @pytest.fixture()
 def base_app(instance_path):
     """Flask application fixture."""
-    app_ = Flask('testapp', instance_path=instance_path)
-    app_.config.update(
-        SECRET_KEY='SECRET_KEY',
-        TESTING=True,
-    )
-    Babel(app_)
+    app_ = Flask("testapp", instance_path=instance_path)
+    app_.config.update(SECRET_KEY="SECRET_KEY", TESTING=True)
+    InvenioAccounts(app_)
+    InvenioAssets(app_)
+    InvenioRecordEditor(app_)
     return app_
 
 

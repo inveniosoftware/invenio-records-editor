@@ -2,16 +2,18 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify it
-# under the terms of the MIT License; see LICENSE file for more details.
+# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# it under the terms of the MIT License; see LICENSE file for more details.
 
-"""Invenio module serving a generic record editor"""
+"""Configuration for the invenio-record-editor module."""
 
-# TODO: This is an example file. Remove it if your package does not use any
-# extra configuration variables.
+from .permissions import allow_all
 
-RECORD_EDITOR_DEFAULT_VALUE = 'foobar'
-"""Default value for the application."""
+RECORD_EDITOR_URL_PREFIX = "/"
+"""Default URL we want to serve our editor application, i.e /editor."""
 
-RECORD_EDITOR_BASE_TEMPLATE = 'invenio_record_editor/base.html'
+RECORD_EDITOR_VIEW_PERMISSION = allow_all
+"""Default permission to access the editor."""
+
+RECORD_EDITOR_BASE_TEMPLATE = "invenio_record_editor/base.html"
 """Default base template for the demo page."""

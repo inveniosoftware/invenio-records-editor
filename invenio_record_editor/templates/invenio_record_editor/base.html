@@ -1,14 +1,25 @@
 {#
-  Copyright (C) 2018 CERN.
-  Invenio-Record-Editor is free software; you can redistribute it and/or modify it
-  under the terms of the MIT License; see LICENSE file for more details.
+Copyright (C) 2018 CERN.
+Invenio-Record-Editor is free software; you can redistribute it and/or modify it
+under the terms of the MIT License; see LICENSE file for more details.
 #}
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    {% assets "invenio_record_editor_css" %}
+    <link href="{{ ASSET_URL }}" rel="stylesheet">
+    {% endassets %}
+    <base href="{{editor_url}}">
   </head>
+
   <body>
-    {%- block page_body %}{%- endblock page_body %}
+    <app-root></app-root>
+    {{ jwt() }}
+    {% assets "invenio_record_editor_js" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
   </body>
+
 </html>
