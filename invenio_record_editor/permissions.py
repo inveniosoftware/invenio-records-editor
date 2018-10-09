@@ -26,7 +26,6 @@ def need_editor_permissions(action):
 
     :param action: The action needed.
     """
-
     def decorator_builder(f):
         @wraps(f)
         def decorate(*args, **kwargs):
