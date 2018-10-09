@@ -2,7 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# Invenio-Records-Editor
+# is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
 """Registered views for our record editor module."""
@@ -17,9 +18,9 @@ from .permissions import need_editor_permissions
 def create_editor_blueprint(app):
     """Wrapper for our blueprint to create it on demand."""
     blueprint = Blueprint(
-        "invenio_record_editor",
+        "invenio_records_editor",
         __name__,
-        url_prefix=app.config["RECORD_EDITOR_URL_PREFIX"],
+        url_prefix=app.config["RECORDS_EDITOR_URL_PREFIX"],
         template_folder="templates",
         static_folder="static",
     )
@@ -29,9 +30,9 @@ def create_editor_blueprint(app):
     def index():
         """Render a basic view, with dummy permission editor-view."""
         return render_template(
-            "invenio_record_editor/base.html",
-            editor_url=app.config["RECORD_EDITOR_URL_PREFIX"],
-            module_name="Invenio-Record-Editor",
+            "invenio_records_editor/base.html",
+            editor_url=app.config["RECORDS_EDITOR_URL_PREFIX"],
+            module_name="Invenio-Records-Editor",
         )
 
     return blueprint

@@ -1,6 +1,7 @@
 ..
     Copyright (C) 2018 CERN.
-    Invenio-Record-Editor is free software; you can redistribute it and/or modify it
+    Invenio-Records-Editor
+    is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
 
 
@@ -10,7 +11,7 @@ User's Guide
 ------------
 
 This part of the documentation will show you how to get started in using
-Invenio-Record-Editor.
+Invenio-Records-Editor.
 
 .. toctree::
    :maxdepth: 2

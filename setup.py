@@ -2,7 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify it
+# Invenio-Records-Editor 
+# is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
 """Invenio module serving a generic record editor."""
@@ -51,12 +52,12 @@ packages = find_packages()
 
 # Get the version string. Cannot be done with import!
 g = {}
-with open(os.path.join('invenio_record_editor', 'version.py'), 'rt') as fp:
+with open(os.path.join('invenio_records_editor', 'version.py'), 'rt') as fp:
     exec(fp.read(), g)
     version = g['__version__']
 
 setup(
-    name='invenio-record-editor',
+    name='invenio-records-editor',
     version=version,
     description=__doc__,
     long_description=readme + '\n\n' + history,
@@ -64,23 +65,23 @@ setup(
     license='MIT',
     author='CERN',
     author_email='info@inveniosoftware.org',
-    url='https://github.com/topless/invenio-record-editor',
+    url='https://github.com/inveniosoftware/invenio-records-editor',
     packages=packages,
     zip_safe=False,
     include_package_data=True,
     platforms='any',
     entry_points={
         'invenio_base.apps': [
-            'invenio_record_editor = invenio_record_editor.ext:InvenioRecordEditor',
+            'invenio_records_editor = invenio_records_editor.ext:InvenioRecordEditor',
         ],
         # 'invenio_i18n.translations': [
-        #     'messages = invenio_record_editor',
+        #     'messages = invenio_records_editor',
         # ],
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
         'invenio_assets.bundles': [
-            'invenio_record_editor_js = invenio_record_editor.bundles:js',
-            'invenio_record_editor_css = invenio_record_editor.bundles:css'
+            'invenio_records_editor_js = invenio_records_editor.bundles:js',
+            'invenio_records_editor_css = invenio_records_editor.bundles:css'
         ],
         # 'invenio_base.api_apps': [],
         # 'invenio_base.api_blueprints': [],
