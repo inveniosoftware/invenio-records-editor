@@ -40,7 +40,10 @@ def test_init():
 def _check_template():
     """Check template."""
     extended = """
-        {% extends 'invenio_records_editor/base.html' %}
+        {% extends 'invenio_records_editor/editor.html' %}
+        {% block header %}{% endblock %}
+        {% block page_body %}{{ super() }}{% endblock %}
+        {% block javascript %}{% endblock %}
     """
     rendered = render_template_string(extended)
     assert "app-root" in rendered

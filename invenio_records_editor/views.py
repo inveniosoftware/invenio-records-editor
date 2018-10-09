@@ -30,7 +30,7 @@ def create_editor_blueprint(app):
     def index():
         """Render a basic view, with dummy permission editor-view."""
         return render_template(
-            "invenio_records_editor/base.html",
+            "invenio_records_editor/editor.html",
             editor_url=app.config["RECORDS_EDITOR_URL_PREFIX"],
             module_name="Invenio-Records-Editor",
         )
