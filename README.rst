@@ -27,7 +27,8 @@ Invenio module serving a generic record editor
 
 *This is an experimental developer preview release.*
 
-TODO: Please provide feature overview of module
+This module provides [invenio-records-editor-js](https://github.com/inveniosoftware/invenio-records-editor-js)
+an angular application which serves as a json editor for invenio models.
 
 Further documentation is available on
 https://invenio-records-editor.readthedocs.io/
