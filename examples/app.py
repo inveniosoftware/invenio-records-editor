@@ -2,14 +2,15 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# Invenio-Records-Editor 
+# is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
 """Minimal Flask application example.
 
 SPHINX-START
 
-First install Invenio-Record-Editor, setup the application by running:
+First install Invenio-Records-Editor, setup the application by running:
 
 .. code-block:: console
 
@@ -48,8 +49,8 @@ from invenio_accounts.views.settings import blueprint as accounts_bp
 from invenio_assets import InvenioAssets
 from invenio_i18n import InvenioI18N
 
-from invenio_record_editor import InvenioRecordEditor
-from invenio_record_editor.views import create_editor_blueprint
+from invenio_records_editor import InvenioRecordEditor
+from invenio_records_editor.views import create_editor_blueprint
 
 app = Flask(__name__)
 app.config.update(

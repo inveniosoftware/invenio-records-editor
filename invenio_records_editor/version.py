@@ -2,12 +2,13 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# Invenio-Records-Editor
+# is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
-"""Version information for Invenio-Record-Editor.
+"""Version information for Invenio-Records-Editor.
 
-This file is imported by ``invenio_record_editor.__init__``,
+This file is imported by ``invenio_records_editor.__init__``,
 and parsed by ``setup.py``.
 """
 

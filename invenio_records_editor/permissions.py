@@ -2,7 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# Invenio-Records-Editor
+# is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
 """Permissions for editor views."""
@@ -30,7 +31,7 @@ def need_editor_permissions(action):
         @wraps(f)
         def decorate(*args, **kwargs):
             check_permission(
-                current_app.config["RECORD_EDITOR_VIEW_PERMISSION"](action)
+                current_app.config["RECORDS_EDITOR_VIEW_PERMISSION"](action)
             )
             return f(*args, **kwargs)
 

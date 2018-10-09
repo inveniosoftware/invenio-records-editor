@@ -2,7 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify it
+# Invenio-Records-Editor
+# is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
 root = true
@@ -18,7 +19,7 @@ charset = utf-8
 [*.py]
 indent_size = 4
 # isort plugin configuration
-known_first_party = invenio_record_editor
+known_first_party = invenio_records_editor
 multi_line_output = 2
 default_section = THIRDPARTY
 skip = .eggs

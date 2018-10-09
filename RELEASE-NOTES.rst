@@ -1,8 +1,8 @@
 ==============================
- Invenio-Record-Editor v0.1.0
+ Invenio-Records-Editor v0.1.0
 ==============================
 
-Invenio-Record-Editor v0.1.0 was released on TBD, 2018.
+Invenio-Records-Editor v0.1.0 was released on TBD, 2018.
 
 About
 -----
@@ -19,18 +19,18 @@ What's new
 Installation
 ------------
 
-   $ pip install invenio-record-editor==0.1.0
+   $ pip install invenio-records-editor==0.1.0
 
 Documentation
 -------------
 
-   https://invenio-record-editor.readthedocs.io/
+   https://invenio-records-editor.readthedocs.io/
 
-Happy hacking and thanks for flying Invenio-Record-Editor.
+Happy hacking and thanks for flying Invenio-Records-Editor.
 
 | Invenio Development Team
 |   Email: info@inveniosoftware.org
 |   IRC: #invenio on irc.freenode.net
 |   Twitter: https://twitter.com/inveniosoftware
-|   GitHub: https://github.com/topless/invenio-record-editor
+|   GitHub: https://github.com/inveniosoftware/invenio-records-editor
 |   URL: http://inveniosoftware.org

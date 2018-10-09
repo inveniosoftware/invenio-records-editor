@@ -1,8 +1,8 @@
 Installation
 ============
 
-Invenio-Record-Editor is on PyPI so all you need is:
+Invenio-Records-Editor is on PyPI so all you need is:
 
 .. code-block:: console
 
-   $ pip install invenio-record-editor
+   $ pip install invenio-records-editor

@@ -2,7 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# Invenio-Records-Editor
+# is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
 """Pytest configuration."""
@@ -17,7 +18,7 @@ from flask import Flask
 from invenio_accounts import InvenioAccounts
 from invenio_assets import InvenioAssets
 
-from invenio_record_editor import InvenioRecordEditor
+from invenio_records_editor import InvenioRecordEditor
 
 
 @pytest.yield_fixture()

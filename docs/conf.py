@@ -2,7 +2,8 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Record-Editor is free software; you can redistribute it and/or modify
+# Invenio-Records-Editor 
+# is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
 """Sphinx configuration."""
@@ -47,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Invenio-Record-Editor'
+project = u'Invenio-Records-Editor'
 copyright = u'2018, CERN'
 author = u'CERN'
 
@@ -60,7 +61,7 @@ author = u'CERN'
 # Get the version string. Cannot be done with import!
 g = {}
 with open(os.path.join(os.path.dirname(__file__), '..',
-                       'invenio_record_editor', 'version.py'),
+                       'invenio_records_editor', 'version.py'),
           'rt') as fp:
     exec(fp.read(), g)
     version = g['__version__']
@@ -119,13 +120,13 @@ html_theme = 'alabaster'
 html_theme_options = {
     'description': 'Invenio module serving a generic record editor',
     'github_user': 'inveniosoftware',
-    'github_repo': 'invenio-record-editor',
+    'github_repo': 'invenio-records-editor',
     'github_button': False,
     'github_banner': True,
     'show_powered_by': False,
     'extra_nav_links': {
-        'invenio-record-editor@GitHub': 'https://github.com/topless/invenio-record-editor',
-        'invenio-record-editor@PyPI': 'https://pypi.python.org/pypi/invenio-record-editor/',
+        'invenio-records-editor@GitHub': 'https://github.com/inveniosoftware/invenio-records-editor',
+        'invenio-records-editor@PyPI': 'https://pypi.python.org/pypi/invenio-records-editor/',
     }
 }
 
@@ -230,7 +231,7 @@ html_sidebars = {
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'invenio-record-editor_namedoc'
+htmlhelp_basename = 'invenio-records-editor_namedoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -252,7 +253,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'invenio-record-editor.tex', u'invenio-record-editor Documentation',
+    (master_doc, 'invenio-records-editor.tex', u'invenio-records-editor Documentation',
      u'CERN', 'manual'),
 ]
 
@@ -282,7 +283,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'invenio-record-editor', u'invenio-record-editor Documentation',
+    (master_doc, 'invenio-records-editor', u'invenio-records-editor Documentation',
      [author], 1)
 ]
 
@@ -296,8 +297,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'invenio-record-editor', u'Invenio-Record-Editor Documentation',
-     author, 'invenio-record-editor', 'Invenio module serving a generic record editor',
+    (master_doc, 'invenio-records-editor', u'Invenio-Records-Editor Documentation',
+     author, 'invenio-records-editor', 'Invenio module serving a generic record editor',
      'Miscellaneous'),
 ]
 
