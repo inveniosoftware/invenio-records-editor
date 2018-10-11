@@ -11,23 +11,26 @@
 
 from __future__ import absolute_import, division, print_function
 
+from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
+EDITOR_PATH = "node_modules/@inveniosoftware/invenio-records-editor-js/dist"
+
 js = NpmBundle(
-    "node_modules/invenio-records-editor-js/dist/inline.bundle.js",
-    "node_modules/invenio-records-editor-js/dist/polyfills.bundle.js",
-    "node_modules/invenio-records-editor-js/dist/vendor.bundle.js",
-    "node_modules/invenio-records-editor-js/dist/main.bundle.js",
-    depends=("node_modules/invenio-records-editor-js/dist/*.js"),
+    "%s/inline.bundle.js" % EDITOR_PATH,
+    "%s/polyfills.bundle.js" % EDITOR_PATH,
+    "%s/vendor.bundle.js" % EDITOR_PATH,
+    "%s/main.bundle.js" % EDITOR_PATH,
+    depends=("%s/*.js" % EDITOR_PATH),
     filters="uglifyjs",
     output="gen/invenio-records-editor-js.%(version)s.js",
-    npm={"@inveniosoftware/invenio-records-editor-js": "0.0.1"},
+    npm={"@inveniosoftware/invenio-records-editor-js": "0.0.3"},
 )
 """Default Editor JavaScript bundle with Angular4."""
 
-css = NpmBundle(
-    "node_modules/invenio-records-editor-js/dist/styles.bundle.css",
+css = Bundle(
+    "%s/styles.bundle.css" % EDITOR_PATH,
     filters="cleancssurl",
     output="gen/invenio-records-editor-js.%(version)s.css",
 )
-"""Default Editor CSS bundle with bootstrap, font-awesome, kate, toastr"""
+"""Default Editor CSS bundle with bootstrap, toastr"""

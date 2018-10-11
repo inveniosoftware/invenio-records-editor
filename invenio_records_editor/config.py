@@ -16,5 +16,5 @@ RECORDS_EDITOR_URL_PREFIX = "/"
 RECORDS_EDITOR_VIEW_PERMISSION = allow_all
 """Default permission to access the editor."""
 
-RECORDS_EDITOR_BASE_TEMPLATE = "invenio_records_editor/base.html"
-"""Default base template for the demo page."""
+RECORDS_EDITOR_TEMPLATE = "invenio_records_editor/editor.html"
+"""Default editor template."""

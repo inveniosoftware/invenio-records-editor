@@ -13,7 +13,7 @@ from __future__ import absolute_import, print_function
 from . import config
 
 
-class InvenioRecordEditor(object):
+class InvenioRecordsEditor(object):
     """Invenio-Records-Editor extension."""
 
     def __init__(self, app=None):

@@ -13,7 +13,7 @@ from __future__ import absolute_import, print_function
 from flask import Flask, render_template_string
 from invenio_accounts.views.settings import blueprint as accounts_bp
 
-from invenio_records_editor import InvenioRecordEditor
+from invenio_records_editor import InvenioRecordsEditor
 from invenio_records_editor.views import create_editor_blueprint
 
 
@@ -27,11 +27,11 @@ def test_version():
 def test_init():
     """Test extension initialization."""
     app = Flask("testapp")
-    ext = InvenioRecordEditor(app)
+    ext = InvenioRecordsEditor(app)
     assert "invenio-records-editor" in app.extensions
 
     app = Flask("testapp")
-    ext = InvenioRecordEditor()
+    ext = InvenioRecordsEditor()
     assert "invenio-records-editor" not in app.extensions
     ext.init_app(app)
     assert "invenio-records-editor" in app.extensions
