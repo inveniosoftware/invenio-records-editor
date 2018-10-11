@@ -10,7 +10,7 @@
 
 from __future__ import absolute_import, print_function
 
-from .ext import InvenioRecordEditor
+from .ext import InvenioRecordsEditor
 from .version import __version__
 
-__all__ = ("__version__", "InvenioRecordEditor")
+__all__ = ("__version__", "InvenioRecordsEditor")

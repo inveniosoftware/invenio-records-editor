@@ -18,7 +18,7 @@ from flask import Flask
 from invenio_accounts import InvenioAccounts
 from invenio_assets import InvenioAssets
 
-from invenio_records_editor import InvenioRecordEditor
+from invenio_records_editor import InvenioRecordsEditor
 
 
 @pytest.yield_fixture()
@@ -36,7 +36,7 @@ def base_app(instance_path):
     app_.config.update(SECRET_KEY="SECRET_KEY", TESTING=True)
     InvenioAccounts(app_)
     InvenioAssets(app_)
-    InvenioRecordEditor(app_)
+    InvenioRecordsEditor(app_)
     return app_
 
 

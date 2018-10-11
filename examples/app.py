@@ -49,7 +49,7 @@ from invenio_accounts.views.settings import blueprint as accounts_bp
 from invenio_assets import InvenioAssets
 from invenio_i18n import InvenioI18N
 
-from invenio_records_editor import InvenioRecordEditor
+from invenio_records_editor import InvenioRecordsEditor
 from invenio_records_editor.views import create_editor_blueprint
 
 app = Flask(__name__)
@@ -61,7 +61,7 @@ Menu(app)
 InvenioAccounts(app)
 InvenioAssets(app)
 InvenioI18N(app)
-InvenioRecordEditor(app)
+InvenioRecordsEditor(app)
 
 editor_bp = create_editor_blueprint(app)
 app.register_blueprint(accounts_bp)
