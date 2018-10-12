@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Records-Editor 
+# Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
@@ -53,7 +53,7 @@ deploy:
   provider: pypi
   user: inveniosoftware
   password:
-    secure: TODO:PYPISECUREHASH
+    secure: aQ1ZWhuRQ33V4MbdeT0oqbtm4WPqzGKsOS7k4kilrKNB396xU88+zNdQVqRRnTDyOQ8KfBIrHPmKaaQjrmulD3HdwIt5SUdozez6qix2PjWE8PFH4AAkU9I/XHt0cQ6SYu+0DOvcW0jK550kT6nLZt5Q8pRWPFLjhHyIKo7ADlikMrMcH6OE7oU335DPiK19OGHrZdb2pDE/NYlphQWSJVdAwdkuNJMiGtlmD533wOIi3xc1UAEA1IevRtMOyN0JWOVtLQfsVqB19lFMBufERtrx50h1RWzeSwHBjwOsqvWKW09LF3Chx1l46h63FfMPfdGmW56sPTb0leFoNy925rb8vS5DPmLOix/WpPmhFZ5dc9o06ZTbIoPNYFQa3gIjdglYiAZUnrPAjSuGLJ+2++O5iKyKvg5vQvRd4b6BFTn51CRD74L07GXUgk1bLcVeXwdLTk189QoCgpih+48HbUDUsus8SQw+36GPmnRDS+Bb3hpbY5HjvFk4xDnK5VPsKZ0T4WWOgLGh+2p0tgvSeE83S5nOOAV/ls9qCmqwsJqstTczf+wyv52RZsOK2WL0wHbLXR9MVVxHwTMQBhl1gLdztmZpjbygaZVsEBARAiEXinHo0z0F91SKuac7pLRHTBCjW9PZ6TEtgw/Xr3sOw/msWn4lQH28+QxVeHLViUo=
   distributions: "compile_catalog sdist bdist_wheel"
   on:
     tags: true

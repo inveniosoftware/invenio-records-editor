@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Records-Editor 
+# Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
@@ -74,22 +74,10 @@ setup(
         'invenio_base.apps': [
             'invenio_records_editor = invenio_records_editor.ext:InvenioRecordsEditor',
         ],
-        # 'invenio_i18n.translations': [
-        #     'messages = invenio_records_editor',
-        # ],
-        # 'invenio_access.actions': [],
-        # 'invenio_admin.actions': [],
         'invenio_assets.bundles': [
             'invenio_records_editor_js = invenio_records_editor.bundles:js',
             'invenio_records_editor_css = invenio_records_editor.bundles:css'
         ],
-        # 'invenio_base.api_apps': [],
-        # 'invenio_base.api_blueprints': [],
-        # 'invenio_base.blueprints': [],
-        # 'invenio_celery.tasks': [],
-        # 'invenio_db.models': [],
-        # 'invenio_pidstore.minters': [],
-        # 'invenio_records.jsonresolver': [],
     },
     extras_require=extras_require,
     install_requires=install_requires,
@@ -98,7 +86,7 @@ setup(
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
@@ -107,6 +95,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
-        'Development Status :: 1 - Planning',
+        'Development Status :: 3 - Alpha',
     ],
 )
