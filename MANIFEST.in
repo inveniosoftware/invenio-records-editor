@@ -6,27 +6,16 @@
 # is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-# TODO: Generate this manifest file by running the following commands:
-#
-#  git init
-#  git add -A
-#  pip install -e .[all]
-#  check-manifest -u
-
-# Check manifest will not automatically add these two files:
 include .dockerignore
 include .editorconfig
 include .tx/config
-prune docs/_build
-recursive-include invenio_records_editor *.po *.pot *.mo
-
-# added by check_manifest.py
 include *.rst
 include *.sh
 include *.txt
-include LICENSE
 include babel.ini
+include LICENSE
 include pytest.ini
+prune docs/_build
 recursive-include docs *.bat
 recursive-include docs *.py
 recursive-include docs *.rst
@@ -34,10 +23,9 @@ recursive-include docs *.txt
 recursive-include docs Makefile
 recursive-include examples *.py
 recursive-include examples *.sh
-recursive-include invenio_records_editor *.html
-recursive-include tests *.py
-
-# added by check_manifest.py
-recursive-include invenio_records_editor *.json
-recursive-include invenio_records_editor *.scss
 recursive-include examples *.txt
+recursive-include invenio_records_editor *.html
+recursive-include invenio_records_editor *.json
+recursive-include invenio_records_editor *.po *.pot *.mo
+recursive-include invenio_records_editor *.scss
+recursive-include tests *.py
