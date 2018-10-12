@@ -7,6 +7,10 @@
 Changes
 =======
 
-Version 1.0.0a1
+Version 1.0.0a2 (released 2018-10-12)
+
+- Register views using entrypoints.
+
+Version 1.0.0a1 (released 2018-10-11)
 
 - Initial public release.
