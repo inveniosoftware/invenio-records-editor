@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Records-Editor 
+# Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
@@ -318,8 +318,6 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/', None),
-    # TODO: Configure external documentation references, eg:
-    # 'Flask-Admin': ('https://flask-admin.readthedocs.io/en/latest/', None),
 }
 
 # Autodoc configuraton.

@@ -16,15 +16,15 @@ readme = open('README.rst').read()
 history = open('CHANGES.rst').read()
 
 tests_require = [
-    'check-manifest>=0.25',
+    'check-manifest>=0.35',
     'coverage>=4.0',
     'invenio-db>=1.0.2',
-    'isort>=4.3.3',
+    'isort>=4.3.4',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
-    'pytest>=2.8.0',
+    'pytest>=3.3.1',
 ]
 
 extras_require = {
@@ -44,7 +44,7 @@ setup_requires = [
 
 install_requires = [
     'invenio-assets>=1.0.0',
-    'invenio-accounts>=1.0.1',
+    'invenio-accounts[]>=1.0.1',
 ]
 
 packages = find_packages()
@@ -61,7 +61,7 @@ setup(
     version=version,
     description=__doc__,
     long_description=readme + '\n\n' + history,
-    keywords='invenio TODO',
+    keywords='invenio records editor',
     license='MIT',
     author='CERN',
     author_email='info@inveniosoftware.org',
@@ -72,7 +72,12 @@ setup(
     platforms='any',
     entry_points={
         'invenio_base.apps': [
-            'invenio_records_editor = invenio_records_editor.ext:InvenioRecordsEditor',
+            'invenio_records_editor = '
+            'invenio_records_editor.ext:InvenioRecordsEditor',
+        ],
+        'invenio_base.blueprints': [
+            'invenio_records_editor = '
+            'invenio_records_editor.views:create_editor_blueprint',
         ],
         'invenio_assets.bundles': [
             'invenio_records_editor_js = invenio_records_editor.bundles:js',

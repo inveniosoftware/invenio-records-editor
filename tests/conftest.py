@@ -21,7 +21,7 @@ from invenio_assets import InvenioAssets
 from invenio_records_editor import InvenioRecordsEditor
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def instance_path():
     """Temporary instance path."""
     path = tempfile.mkdtemp()
@@ -33,14 +33,17 @@ def instance_path():
 def base_app(instance_path):
     """Flask application fixture."""
     app_ = Flask("testapp", instance_path=instance_path)
-    app_.config.update(SECRET_KEY="SECRET_KEY", TESTING=True)
+    app_.config.update(
+        SECRET_KEY="SECRET_KEY",
+        TESTING=True
+    )
     InvenioAccounts(app_)
     InvenioAssets(app_)
     InvenioRecordsEditor(app_)
     return app_
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def app(base_app):
     """Flask application fixture."""
     with base_app.app_context():
