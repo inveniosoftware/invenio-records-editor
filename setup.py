@@ -45,6 +45,7 @@ setup_requires = [
 install_requires = [
     'invenio-assets>=1.0.0',
     'invenio-accounts[]>=1.0.1',
+    "invenio-jsonschemas>=1.0.0,<1.1.0",
 ]
 
 packages = find_packages()
@@ -72,6 +73,10 @@ setup(
     platforms='any',
     entry_points={
         'invenio_base.apps': [
+            'invenio_records_editor = '
+            'invenio_records_editor.ext:InvenioRecordsEditor',
+        ],
+        'invenio_base.api_apps': [
             'invenio_records_editor = '
             'invenio_records_editor.ext:InvenioRecordsEditor',
         ],
