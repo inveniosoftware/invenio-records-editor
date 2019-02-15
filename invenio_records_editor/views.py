@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2018 CERN.
+# Copyright (C) 2018-2019 CERN.
 #
 # Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify
@@ -10,7 +10,9 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint, current_app, render_template, request
+import copy
+
+from flask import Blueprint, abort, current_app, render_template, request
 from invenio_jsonschemas.proxies import current_jsonschemas
 
 from .permissions import need_editor_permissions
@@ -26,57 +28,24 @@ def create_editor_blueprint(app):
         static_folder="static",
     )
 
-    @blueprint.route("/<string:rec_type>")
+    @need_editor_permissions("editor-view")
+    @blueprint.route("/<string:rec_type>/")
     @blueprint.route("/<string:rec_type>/<int:recid>")
-    @need_editor_permissions("editor-view")
-    def edit_record(rec_type, recid=None):
+    def index(rec_type, recid=None):
         """Render a basic view, with dummy permission editor-view."""
-        ui_config = {}
         json_editor_config = current_app.config["RECORDS_EDITOR_UI_CONFIG"]
-        endpoint_config = json_editor_config.get(rec_type)
-        ui_config.update(endpoint_config)
+        if rec_type not in json_editor_config:
+            abort(404)
 
-        api_url = "{0}{1}".format(
-            request.url_root, endpoint_config["recordConfig"]["apiUrl"]
-        )
-        if recid:
-            api_url = "{0}{1}".format(api_url, recid)
+        ui_config = copy.deepcopy(json_editor_config[rec_type])
 
-        ui_config["recordConfig"]["apiUrl"] = api_url
-        ui_config["recordConfig"][
-            "$schema"
-        ] = current_jsonschemas.path_to_url(
-            endpoint_config["recordConfig"]["$schema"]
-        )
-        import ipdb
-
-        ipdb.set_trace()
-        return render_template(
-            app.config["RECORDS_EDITOR_TEMPLATE"],
-            editor_url=app.config["RECORDS_EDITOR_URL_PREFIX"],
-            module_name="Invenio-Records-Editor",
-            ui_config=ui_config,
+        ui_config["recordConfig"]["apiUrl"] = "{0}{1}".format(
+            request.url_root, ui_config["recordConfig"]["apiUrl"]
         )
 
-    return blueprint
-
-    @need_editor_permissions("editor-view")
-    def create_record(rec_type):
-        """Render a basic view, with dummy permission editor-view."""
-        ui_config = {}
-        json_editor_config = current_app.config["RECORDS_EDITOR_UI_CONFIG"]
-        endpoint_config = json_editor_config.get(rec_type)
-        ui_config.update(endpoint_config)
-
-        ui_config["record_config"]["apiUrl"] = "{0}{1}{2}".format(
-            request.url_root, endpoint_config["record_config"]["apiUrl"], recid
+        ui_config["recordConfig"]["schema"] = current_jsonschemas.path_to_url(
+            ui_config["recordConfig"]["schema"]
         )
-        ui_config["record_config"][
-            "$schema"
-        ] = current_jsonschemas.path_to_url(
-            endpoint_config["record_config"]["$schema"]
-        )
-
         return render_template(
             app.config["RECORDS_EDITOR_TEMPLATE"],
             editor_url=app.config["RECORDS_EDITOR_URL_PREFIX"],

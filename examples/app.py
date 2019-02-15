@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2018 CERN.
 #
-# Invenio-Records-Editor 
+# Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
 
@@ -59,7 +59,6 @@ app.config.update(
 
 Menu(app)
 InvenioAccounts(app)
-InvenioAssets(app)
 InvenioI18N(app)
 InvenioRecordsEditor(app)
 

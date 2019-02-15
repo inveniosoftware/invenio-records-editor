@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2018 CERN.
+# Copyright (C) 2018-2019 CERN.
 #
 # Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify
@@ -20,88 +20,32 @@ RECORDS_EDITOR_TEMPLATE = "invenio_records_editor/editor.html"
 """Default editor template."""
 
 RECORDS_EDITOR_UI_CONFIG = {}
-"""Editor ui config."""
+"""Editor ui config.
 
-"""
-RECORDS_EDITOR_UI_CONFIG = {
-    "items": {
-        "recordConfig": {
-            "apiUrl": "api/items/",
-            "$schema": "items/item-v1.0.0.json",
-        },
-        "editorConfig": {
-            "schemaOptions": {
-                "alwaysShow": [
-                    "legacy_id",
-                    "shelf",
-                    "description",
-                    "circulation_restriction",
-                    "medium",
-                    "legacy_library_id",
-                ],
-                "properties": {
-                    "$schema": {"hidden": True},
-                    "document": {"hidden": True},
-                    "internal_location": {"hidden": True},
-                    "circulation_status": {"hidden": True},
-                },
+Example configuration could be:
+
+.. code-block:: python
+
+    {
+        "records": {
+            "recordConfig": {
+                "apiUrl": "api/records/",
+                "$schema": "records/record-v1.0.0.json"
             },
-        },
-    },
-    "documents": {
-        "recordConfig": {
-            "apiUrl": "api/documents/",
-            "$schema": "documents/document-v1.0.0.json",
-        },
-        "editorConfig": {
-            "schemaOptions": {
-                "alwaysShow": ["title", "abstracts", "authors"],
-                "properties": {
-                    "$schema": {"hidden": True},
-                    "circulation": {"hidden": True},
-                },
-            },
-        },
-    },
-    "locations": {
-        "record_editor": {
-            "apiUrl": "api/locations/",
-            "$schema": "locations/location-v1.0.0.json",
-        },
-        "editorConfig": {
-            "schemaOptions": {
-                "alwaysShow": [
-                    "location_pid",
-                    "name",
-                    "address",
-                    "email",
-                    "phone",
-                    "notes",
-                ],
-                "properties": {"$schema": {"hidden": True}},
-            },
-        },
-    },
-    "internal-locations": {
-        "recordConfig": {
-            "apiUrl": "api/internal-locations/",
-            "$schema": "internal_locations/internal_location-v1.0.0.json",
-        },
-        "editorConfig": {
-            "schemaOptions": {
-                "alwaysShow": [
-                    "legacy_id",
-                    "location_pid",
-                    "name",
-                    "physical_location",
-                    "notes",
-                ],
-                "properties": {
-                    "$schema": {"hidden": True},
-                    "location": {"hidden": True},
-                },
-            },
-        },
-    },
-}
+            "editorConfig": {
+                "schemaOptions": {
+                    "alwaysShow": [
+                        "title",
+                        "description"
+                    ],
+                    "properties": {
+                        "$schema": {
+                            "hidden": True
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 """
