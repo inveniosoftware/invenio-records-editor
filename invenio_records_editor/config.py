@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2018 CERN.
+# Copyright (C) 2018-2019 CERN.
 #
 # Invenio-Records-Editor
 # is free software; you can redistribute it and/or modify
@@ -18,3 +18,34 @@ RECORDS_EDITOR_VIEW_PERMISSION = allow_all
 
 RECORDS_EDITOR_TEMPLATE = "invenio_records_editor/editor.html"
 """Default editor template."""
+
+RECORDS_EDITOR_UI_CONFIG = {}
+"""Editor ui config.
+
+Example configuration could be:
+
+.. code-block:: python
+
+    {
+        "records": {
+            "recordConfig": {
+                "apiUrl": "api/records/",
+                "$schema": "records/record-v1.0.0.json"
+            },
+            "editorConfig": {
+                "schemaOptions": {
+                    "alwaysShow": [
+                        "title",
+                        "description"
+                    ],
+                    "properties": {
+                        "$schema": {
+                            "hidden": True
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+"""

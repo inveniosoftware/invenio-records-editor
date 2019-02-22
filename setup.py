@@ -18,18 +18,20 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.35',
     'coverage>=4.0',
+    'invenio_assets>=1.1.1,<1.2.0',
+    'invenio-accounts>=1.0.1,<1.1.0',
     'invenio-db>=1.0.2',
     'isort>=4.3.4',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
-    'pytest>=3.3.1',
+    'pytest>=3.8.1,<4',
 ]
 
 extras_require = {
     'docs': [
-        'Sphinx>=1.5.1',
+        'Sphinx>=1.5.6,<1.6',
     ],
     'tests': tests_require,
 }
@@ -43,8 +45,7 @@ setup_requires = [
 ]
 
 install_requires = [
-    'invenio-assets>=1.0.0',
-    'invenio-accounts[]>=1.0.1',
+    'invenio-jsonschemas>=1.0.0,<1.1.0',
 ]
 
 packages = find_packages()
@@ -75,13 +76,13 @@ setup(
             'invenio_records_editor = '
             'invenio_records_editor.ext:InvenioRecordsEditor',
         ],
+        'invenio_base.api_apps': [
+            'invenio_records_editor = '
+            'invenio_records_editor.ext:InvenioRecordsEditor',
+        ],
         'invenio_base.blueprints': [
             'invenio_records_editor = '
             'invenio_records_editor.views:create_editor_blueprint',
-        ],
-        'invenio_assets.bundles': [
-            'invenio_records_editor_js = invenio_records_editor.bundles:js',
-            'invenio_records_editor_css = invenio_records_editor.bundles:css'
         ],
     },
     extras_require=extras_require,

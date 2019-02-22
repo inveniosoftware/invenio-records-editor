@@ -15,10 +15,45 @@ import tempfile
 
 import pytest
 from flask import Flask
+from flask_menu import Menu
 from invenio_accounts import InvenioAccounts
 from invenio_assets import InvenioAssets
+from invenio_jsonschemas import InvenioJSONSchemas
 
-from invenio_records_editor import InvenioRecordsEditor
+from invenio_records_editor.ext import InvenioRecordsEditor
+from invenio_records_editor.views import create_editor_blueprint
+
+
+@pytest.fixture()
+def editor_config():
+    """Editor example config."""
+    config = {
+        "items": {
+            "recordConfig": {
+                "apiUrl": "api/items/",
+                "schema": "items/item-v1.0.0.json",
+            },
+            "editorConfig": {
+                "schemaOptions": {
+                    "alwaysShow": [
+                        "legacy_id",
+                        "shelf",
+                        "description",
+                        "circulation_restriction",
+                        "medium",
+                        "legacy_library_id",
+                    ],
+                    "properties": {
+                        "$schema": {"hidden": True},
+                        "document": {"hidden": True},
+                        "internal_location": {"hidden": True},
+                        "circulation_status": {"hidden": True},
+                    },
+                }
+            },
+        }
+    }
+    return config
 
 
 @pytest.fixture()
@@ -30,17 +65,26 @@ def instance_path():
 
 
 @pytest.fixture()
-def base_app(instance_path):
+def base_app(instance_path, editor_config):
     """Flask application fixture."""
-    app_ = Flask("testapp", instance_path=instance_path)
-    app_.config.update(
-        SECRET_KEY="SECRET_KEY",
-        TESTING=True
+    app = Flask("testapp", instance_path=instance_path)
+
+    app.config.update(
+        SECRET_KEY="SECRET_KEY", TESTING=True, SERVER_NAME="localhost"
     )
-    InvenioAccounts(app_)
-    InvenioAssets(app_)
-    InvenioRecordsEditor(app_)
-    return app_
+    app.config.update(RECORDS_EDITOR_UI_CONFIG=editor_config)
+
+    InvenioAccounts(app)
+    InvenioAssets(app)
+    InvenioJSONSchemas(app)
+    InvenioRecordsEditor(app)
+    Menu(app)
+
+    from invenio_accounts.views.settings import blueprint
+    app.register_blueprint(blueprint)
+
+    app.register_blueprint(create_editor_blueprint(app))
+    return app
 
 
 @pytest.fixture()
